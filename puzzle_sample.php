@@ -59,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <input type="submit" value="ログイン">
         <div id="capy-captcha">
             <?php 
+                // 死活監視でサービスが正常稼働していると判定された場合、パズルCAPTCHAを呼び出す
                 if (check_capy_status()) {  
                     $puzzle_key_escape = htmlspecialchars($puzzle_key, ENT_QUOTES, 'UTF-8');
                     echo "<script type='text/javascript' src='https://jp.api.capy.me/puzzle/get_js/?k={$puzzle_key_escape}'></script>";                    
